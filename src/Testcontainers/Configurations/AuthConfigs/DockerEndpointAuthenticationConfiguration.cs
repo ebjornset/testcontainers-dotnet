@@ -33,7 +33,7 @@ namespace DotNet.Testcontainers.Configurations
       var defaultHttpRequestHeaders = new Dictionary<string, string>();
       defaultHttpRequestHeaders.Add("User-Agent", "tc-dotnet/" + TestcontainersClient.Version);
       defaultHttpRequestHeaders.Add("x-tc-sid", sessionId.ToString("D"));
-      return new DockerClientConfiguration(Endpoint, Credentials, defaultHttpRequestHeaders: defaultHttpRequestHeaders);
+      return new DockerClientConfiguration(Endpoint, Credentials, defaultHttpRequestHeaders: defaultHttpRequestHeaders, namedPipeConnectTimeout: TimeSpan.FromMilliseconds(500));
     }
   }
 }
